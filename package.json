@@ -1,0 +1,33 @@
+{
+  "name": "Indian-Meals",
+  "version": "1.0.0",
+  "description": "The JavaScript capstone project is about building a web application based on an external API. We selected an API that provides data about Indian meals and then built the webapp around it. The webapp has 2 user interfaces, the homepage and a popup window with more data about a meal that which also allows you to comment on it.",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "watch": "webpack --watch",
+    "start": "webpack serve --open",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZeenatLawal/Indian-Meals.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZeenatLawal/Indian-Meals/issues"
+  },
+  "homepage": "https://github.com/ZeenatLawal/Indian-Meals#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.1.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0"
+  }
+}

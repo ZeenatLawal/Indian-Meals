@@ -5,14 +5,9 @@
   top: 0;
   width: 60%;
   z-index: 2000;
-  height: 150vh;
+  height: 120vh;
 }
 
-#allMeals,
-#tumericMeals,
-#garamMeals {
-  display: none;
-}
 
 .image-div {
   text-align: center;

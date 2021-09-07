@@ -1,6 +1,8 @@
-import commentPopup from "./commentPopup";
-import './commentPopup.css';
+import commentPopup from './commentPopup.js';
 
+const main = document.getElementById('main');
+const header = document.getElementsByTagName('header');
+const footer = document.getElementsByTagName('footer');
 
 export default (mealsDiv, allMeals) => {
   mealsDiv.innerHTML = '';
@@ -11,15 +13,18 @@ export default (mealsDiv, allMeals) => {
       <i class="far fa-heart"></i>
     </div>
     <p id="likes">5 likes</p>
-    <button id="comment">Comments</button>`;
+    <button class="comment" id="${meal.idMeal}">Comments</button>`;
 
     const meals = document.createElement('div');
     meals.classList.add('mealCard');
     meals.innerHTML = card;
     mealsDiv.appendChild(meals);
-    const display = document.getElementById('comment');
-    display.addEventListener('click', () => {
-      commentPopup()
-    })
+    const displayComment = document.getElementById(meal.idMeal);
+    displayComment.addEventListener('click', () => {
+      commentPopup(meal.idMeal);
+      main.style.display = 'none';
+      header[0].style.display = 'none';
+      footer[0].style.display = 'none';
+    });
   });
 };

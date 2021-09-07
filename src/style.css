@@ -78,7 +78,7 @@ header {
   align-items: center;
 }
 
-#comment {
+.comment {
   padding: 8px 50px;
   margin-top: 6px;
   background-color: #709727;

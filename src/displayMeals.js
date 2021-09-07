@@ -1,17 +1,17 @@
 export default (mealsDiv, allMeals) => {
   mealsDiv.innerHTML = '';
   allMeals.forEach((meal) => {
-    const img = `${meal.strMealThumb}`;
-    const content = `${meal.strMeal}`;
+    const card = `<img src="${meal.strMealThumb}" alt="Food">
+    <div class="mealName flex">
+      <p>${meal.strMeal}</p>
+      <i class="far fa-heart"></i>
+    </div>
+    <p id="likes">5 likes</p>
+    <button id="comment">Comments</button>`;
 
-    const listItem = document.createElement('div');
-    const mealImg = document.createElement('img');
-    const mealName = document.createElement('p');
-    mealImg.setAttribute('src', img);
-    mealName.innerText = content;
-    listItem.className = 'list-item';
-    listItem.appendChild(mealName);
-    listItem.appendChild(mealImg);
-    mealsDiv.appendChild(listItem);
+    const meals = document.createElement('div');
+    meals.classList.add('mealCard');
+    meals.innerHTML = card;
+    mealsDiv.appendChild(meals);
   });
 };

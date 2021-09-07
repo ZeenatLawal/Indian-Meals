@@ -1,0 +1,50 @@
+.popup {
+  background-color: gainsboro;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  width: 60%;
+  z-index: 2000;
+  height: 150vh;
+  /* display: none; */
+}
+
+.image-div {
+  text-align: center;
+  display: flex;
+  margin-top: 50px;
+}
+
+.image-container {
+  width: 100%;
+  color: black;
+}
+
+.image-container img {
+  width: 50%;
+}
+
+.comment-container {
+  padding: 10px;
+  text-align: center;
+}
+
+.form-control {
+  width: 50%;
+}
+
+.commentForm {
+  margin-left: 10px;
+}
+
+.close-btn {
+  display: block;
+  float: right;
+  margin-right: 1rem;
+  margin-top: 1rem;
+  width: 30px;
+  height: 30px;
+  background-color: #eba844;
+  border: none;
+  font-weight: bold;
+}

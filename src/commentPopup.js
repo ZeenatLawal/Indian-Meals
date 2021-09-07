@@ -1,7 +1,8 @@
 import './commentPopup.css';
 
+const mainContainer = document.getElementById('home');
 const commentPopup = () => {
-  const mainContainer = document.getElementById('home');
+  mainContainer.innerHTML = '';
   const commentPopup = document.createElement('div');
   commentPopup.className = 'popup';
   commentPopup.innerHTML = `<button type='button' class='close-btn'>X</button>

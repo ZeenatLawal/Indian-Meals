@@ -1,11 +1,8 @@
 import './style.css';
-import commentPopup from './commentPopup';
-
-commentPopup()
-
+import commentPopup from './commentPopup.js';
+import './commentPopup.css';
 import displayMeals from './displayMeals.js';
 import getMeals from './apiGet.js';
-
 
 
 const allMeals = document.getElementById('allMeals');

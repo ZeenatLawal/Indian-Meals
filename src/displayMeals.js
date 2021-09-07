@@ -1,3 +1,7 @@
+import commentPopup from "./commentPopup";
+import './commentPopup.css';
+
+
 export default (mealsDiv, allMeals) => {
   mealsDiv.innerHTML = '';
   allMeals.forEach((meal) => {
@@ -13,5 +17,9 @@ export default (mealsDiv, allMeals) => {
     meals.classList.add('mealCard');
     meals.innerHTML = card;
     mealsDiv.appendChild(meals);
+    const display = document.getElementById('comment');
+    display.addEventListener('click', () => {
+      commentPopup()
+    })
   });
 };

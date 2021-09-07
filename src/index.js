@@ -1,13 +1,7 @@
 import './style.css';
+import './commentPopup.css';
 import displayMeals from './displayMeals.js';
 import getMeals from './apiGet.js';
-
-const footer = document.createElement('div');
-footer.className = 'footer';
-const footerText = document.createElement('p');
-footerText.innerHTML = 'Created By Microverse under CC lisence';
-footer.appendChild(footerText);
-document.body.appendChild(footer);
 
 const allMeals = document.getElementById('allMeals');
 const tumericMeals = document.getElementById('tumericMeals');
@@ -16,9 +10,11 @@ const allMealsLink = document.getElementById('indian');
 const tumericMealsLink = document.getElementById('tumeric');
 const garamMealsLink = document.getElementById('garam');
 
-getMeals('https://www.themealdb.com/api/json/v1/1/filter.php?a=Indian').then((data) => { displayMeals(allMeals, data.meals); });
-getMeals('https://www.themealdb.com/api/json/v1/1/filter.php?i=turmeric').then((data) => { displayMeals(tumericMeals, data.meals); });
-getMeals('https://www.themealdb.com/api/json/v1/1/filter.php?i=garam_masala').then((data) => { displayMeals(garamMeals, data.meals); });
+const url = 'https://www.themealdb.com/api/json/v1/1/filter.php';
+
+getMeals(url, 'a=Indian').then((data) => { displayMeals(allMeals, data.meals); });
+getMeals(url, 'i=turmeric').then((data) => { displayMeals(tumericMeals, data.meals); });
+getMeals(url, 'i=garam_masala').then((data) => { displayMeals(garamMeals, data.meals); });
 
 allMealsLink.addEventListener('click', () => {
   allMeals.style.display = 'flex';

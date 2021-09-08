@@ -2,6 +2,7 @@ import './style.css';
 import './commentPopup.css';
 import displayMeals from './displayMeals.js';
 import getMeals from './apiGet.js';
+import mealsCounter from './meals_counter.js';
 
 const allMeals = document.getElementById('allMeals');
 const tumericMeals = document.getElementById('tumericMeals');
@@ -12,9 +13,22 @@ const garamMealsLink = document.getElementById('garam');
 
 const url = 'https://www.themealdb.com/api/json/v1/1/filter.php';
 
-getMeals(url, 'a=Indian').then((data) => { displayMeals(allMeals, data.meals); });
-getMeals(url, 'i=turmeric').then((data) => { displayMeals(tumericMeals, data.meals); });
-getMeals(url, 'i=garam_masala').then((data) => { displayMeals(garamMeals, data.meals); });
+getMeals(url, 'a=Indian').then((data) => {
+  const allCount = mealsCounter(data.meals);
+  allMealsLink.innerHTML += `(${allCount})`;
+  displayMeals(allMeals, data.meals);
+});
+
+getMeals(url, 'i=turmeric').then((data) => {
+  const tumericCount = mealsCounter(data.meals);
+  tumericMealsLink.innerHTML += `(${tumericCount})`;
+  displayMeals(tumericMeals, data.meals);
+});
+getMeals(url, 'i=garam_masala').then((data) => {
+  const garamCount = mealsCounter(data.meals);
+  garamMealsLink.innerHTML += `(${garamCount})`;
+  displayMeals(garamMeals, data.meals);
+});
 
 allMealsLink.addEventListener('click', () => {
   allMeals.style.display = 'flex';

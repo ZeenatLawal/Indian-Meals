@@ -1,5 +1,5 @@
 import commentPopup from './commentPopup.js';
-import commentList from './commentList.js';
+import countComments from './commentList.js';
 
 class Meal {
   static async postComment(mealId, name, comment) {
@@ -31,6 +31,12 @@ class Meal {
 const comments = (list, mealId) => {
     Meal.getComments(mealId).then((data)=> {
       list.innerHTML = '';
+      const listHeading = list.previousSibling.previousSibling;
+      const counter = countComments(data)
+      if (counter >= 0) {
+        listHeading.innerHTML += ` (${counter})`; 
+      }
+
       if (data.length > 0){
         data.forEach(comment => {
           list.innerHTML += `${comment.creation_date} ${comment.username}: ${comment.comment} <br>`

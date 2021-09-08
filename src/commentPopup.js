@@ -1,6 +1,8 @@
 import './commentPopup.css';
 import getMeals from './apiGet.js';
 import { Meal, comments } from './commentApi.js';
+import countComments from './commentList.js';
+
 
 const mainContainer = document.getElementById('home');
 const main = document.getElementById('main');
@@ -22,7 +24,7 @@ const commentPopup = (mealId) => {
                               <div class='meal-name'><h2>${data.meals[0].strMeal}</h2></div>
                               <div class='cuisine'><b>Category:</b> ${data.meals[0].strCategory}</div>
                               <div class='ingredients'><b> Ingredients:</b> ${data.meals[0].strIngredient1}, ${data.meals[0].strIngredient2}, ${data.meals[0].strIngredient3}, ${data.meals[0].strIngredient4}, ${data.meals[0].strIngredient5}</div>
-                              <h3>Comments (<span id="commentCount"></span>)</h3>
+                              <h3 class='counter'>Comments</h3>
                               <div class='comment-list' id="${listId}"> </div>
                               <div class='add-comment'><h2>Add a comment:</h2></div>
                               <div class="commentForm form-group">

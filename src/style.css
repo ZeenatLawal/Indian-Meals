@@ -74,7 +74,7 @@ header {
 }
 
 .mealName {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -85,6 +85,6 @@ header {
   border: 1px solid #eba844;
 }
 
-#likes {
-  text-align: right;
+.likes {
+  margin-left: 150px;
 }

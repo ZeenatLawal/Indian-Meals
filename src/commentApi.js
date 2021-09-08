@@ -21,9 +21,24 @@ class Meal {
   static async getComments(mealId) {
     const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/7X6fjvwVL8rklkn24xVW/comments?item_id=${mealId}`);
     const comments = await response.json();
-    return commentList(comments.error ? [] : comments);
+    return comments;
+    // return commentList(comments.error ? [] : comments);
   }
 
-}
+  
 
-export default Meal;
+}
+const comments = (list, mealId) => {
+    Meal.getComments(mealId).then((data)=> {
+      list.innerHTML = '';
+      if (data.length > 0){
+        data.forEach(comment => {
+          list.innerHTML += `${comment.creation_date} ${comment.username}: ${comment.comment} <br>`
+        });
+      } else {
+        list.innerHTML = 'No comments';
+      }
+      
+    })
+}
+export {Meal, comments};

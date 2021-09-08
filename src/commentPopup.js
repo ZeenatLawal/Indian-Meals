@@ -1,6 +1,6 @@
 import './commentPopup.css';
 import getMeals from './apiGet.js';
-import Meal from './commentApi.js';
+import { Meal, comments } from './commentApi.js';
 
 const mainContainer = document.getElementById('home');
 const main = document.getElementById('main');
@@ -10,6 +10,7 @@ const footer = document.getElementsByTagName('footer');
 const commentPopup = (mealId) => {
   const url = 'https://www.themealdb.com/api/json/v1/1/lookup.php';
   getMeals(url, `i=${mealId}`).then((data) => {
+    const listId = data.meals[0].idMeal + 1;
     mainContainer.innerHTML = '';
     const commentPopup = document.createElement('div');
     commentPopup.className = 'popup';
@@ -22,7 +23,7 @@ const commentPopup = (mealId) => {
                               <div class='cuisine'><b>Category:</b> ${data.meals[0].strCategory}</div>
                               <div class='ingredients'><b> Ingredients:</b> ${data.meals[0].strIngredient1}, ${data.meals[0].strIngredient2}, ${data.meals[0].strIngredient3}, ${data.meals[0].strIngredient4}, ${data.meals[0].strIngredient5}</div>
                               <h3>Comments (<span id="commentCount"></span>)</h3>
-                              <div class='comment-list'> <div class='comment-list'></div></div>
+                              <div class='comment-list' id="${listId}"> </div>
                               <div class='add-comment'><h2>Add a comment:</h2></div>
                               <div class="commentForm form-group">
                         <div><input type="text" id="${data.meals[0].strMeal}" name="name" class="comment-name" placeholder="Your Name"></div><br>
@@ -39,14 +40,18 @@ const commentPopup = (mealId) => {
       header[0].style.display = 'flex';
       footer[0].style.display = 'block';
     });
+
     const commentBtn = document.getElementById(data.meals[0].idMeal);
     const inputName = document.getElementById(data.meals[0].strMeal);
     const inputComment = document.getElementById(data.meals[0].strIngredient1);
     commentBtn.addEventListener('click', () => {
-      Meal.postComment(data.meals[0].idMeal, inputName.value, inputComment.value);
+      Meal.postComment(data.meals[0].idMeal, inputName.value, inputComment.value).then(() => comments(list, data.meals[0].idMeal));
       inputName.value = '';
       inputComment.value = '';
     });
+
+    const list = document.getElementById(listId);
+    comments(list, data.meals[0].idMeal);
 });
 };
 

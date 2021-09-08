@@ -1,8 +1,8 @@
+/* eslint-disable no-unused-vars, no-use-before-define */
 import './commentPopup.css';
 import getMeals from './apiGet.js';
 import { Meal, comments } from './commentApi.js';
 import countComments from './commentList.js';
-
 
 const mainContainer = document.getElementById('home');
 const main = document.getElementById('main');
@@ -47,14 +47,19 @@ const commentPopup = (mealId) => {
     const inputName = document.getElementById(data.meals[0].strMeal);
     const inputComment = document.getElementById(data.meals[0].strIngredient1);
     commentBtn.addEventListener('click', () => {
-      Meal.postComment(data.meals[0].idMeal, inputName.value, inputComment.value).then(() => comments(list, data.meals[0].idMeal));
+      Meal.postComment(
+        data.meals[0].idMeal,
+        inputName.value,
+        inputComment.value,
+      ).then(() => comments(list, data.meals[0].idMeal));
       inputName.value = '';
       inputComment.value = '';
     });
 
     const list = document.getElementById(listId);
     comments(list, data.meals[0].idMeal);
-});
+  });
 };
 
 export default commentPopup;
+/* eslint-enable no-unused-vars, no-use-before-define */

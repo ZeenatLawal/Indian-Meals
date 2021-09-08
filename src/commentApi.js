@@ -27,9 +27,9 @@ class Meal {
     );
     const comments = await response.json();
     return comments;
-    // return commentList(comments.error ? [] : comments);
   }
 }
+
 const comments = (list, mealId) => {
   Meal.getComments(mealId).then((data) => {
     list.innerHTML = '';

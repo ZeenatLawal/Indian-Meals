@@ -2,7 +2,6 @@
 import './commentPopup.css';
 import getMeals from './apiGet.js';
 import { Meal, comments } from './commentApi.js';
-import countComments from './commentList.js';
 
 const mainContainer = document.getElementById('home');
 const main = document.getElementById('main');

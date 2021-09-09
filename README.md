@@ -60,4 +60,4 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Learning partners, Standup and morning session team
+- Standup and morning session team

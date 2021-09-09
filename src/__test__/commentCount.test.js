@@ -1,4 +1,4 @@
-import countComments from '../commentList.js';
+import countComments from '../commentCount.js';
 
 const comments = [
   {

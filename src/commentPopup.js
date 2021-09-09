@@ -23,14 +23,19 @@ const commentPopup = (mealId) => {
                               <div class='meal-name'><h2>${data.meals[0].strMeal}</h2></div>
                               <div class='cuisine'><b>Category:</b> ${data.meals[0].strCategory}</div>
                               <div class='ingredients'><b> Ingredients:</b> ${data.meals[0].strIngredient1}, ${data.meals[0].strIngredient2}, ${data.meals[0].strIngredient3}, ${data.meals[0].strIngredient4}, ${data.meals[0].strIngredient5}</div>
-                              <h3 class='counter'>Comments</h3>
-                              <div class='comment-list' id="${listId}"> </div>
-                              <div class='add-comment'><h2>Add a comment:</h2></div>
+                              <div class='flex-div'>
+                              <div>
+                                <h3 class='counter'>Comments</h3>
+                                <div class='comment-list' id="${listId}"> </div>
+                              </div>
+                              
                               <div class="commentForm form-group">
-                        <div><input type="text" id="${data.meals[0].strMeal}" name="name" class="comment-name" placeholder="Your Name"></div><br>
-                        <div> <textarea id="${data.meals[0].strIngredient1}" name="comment-text" class="textarea-comment" placeholder="Your insight"></textarea></div><br>
-                        <div><button type="button" id="${data.meals[0].idMeal}" >Submit</button></div>
-                      </div>
+                                  <div class='add-comment'><h2>Add a comment:</h2></div>
+                                  <div><input type="text" id="${data.meals[0].strMeal}" name="name" class="comment-name" placeholder="Your Name"></div><br>
+                                  <div> <textarea id="${data.meals[0].strIngredient1}" name="comment-text" class="textarea-comment" placeholder="Your insight"></textarea></div><br>
+                                  <div><button type="button" id="${data.meals[0].idMeal}" >Submit</button></div>
+                              </div>
+                              </div>
                             </div>`;
 
     mainContainer.appendChild(commentPopup);

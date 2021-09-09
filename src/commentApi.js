@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle, consistent-return */
-import countComments from './commentList.js';
+import countComments from './commentCount.js';
 
 class Meal {
   static async postComment(mealId, name, comment) {
@@ -35,8 +35,8 @@ const comments = (list, mealId) => {
     list.innerHTML = '';
     const listHeading = list.previousSibling.previousSibling;
     const counter = countComments(data);
-    if (counter >= 0) {
-      listHeading.innerHTML += ` (${counter})`;
+    if (counter > 0) {
+      listHeading.innerHTML = `Comments (${counter})`;
     }
 
     if (data.length > 0) {

@@ -8,6 +8,12 @@
   height: 120vh;
 }
 
+.flex-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
 .image-div {
   text-align: center;
   display: flex;
@@ -15,8 +21,10 @@
 }
 
 .image-container {
-  width: 100%;
+  margin: 0 auto;
+  width: 80%;
   color: black;
+
 }
 
 .image-container img {

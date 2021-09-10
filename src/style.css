@@ -41,10 +41,11 @@ header {
 }
 
 .page-footer {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid #709727;
+  background-color: #eba844;
+  text-align: center;
   padding: 15px;
   margin-top: 20px;
 }
